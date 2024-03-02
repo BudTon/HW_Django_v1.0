@@ -7,17 +7,43 @@
         <div class="header">
             <h1><a href="/books">Каталог</a></h1>
         </div>
-        <div class="row">
-            <div class="book col-md-4">
-                <h2>Сияние</h2>
-                <p>Автор: Стивен Кинг</p>
-                <p>Дата публикации: 2018-09-10</p>
-            </div>
-            <div class="book col-md-4">
-                <h2>1984</h2>
-                <p>Автор: Джордж Оруэл</p>
-                <p>Дата публикации: 2015-03-11</p>
-            </div>
+        <div class="content">
+            {% for book in books %}
+                <div class="book col-md4">
+                    <a >
+                        <h2>{{ book.name }}</h2>
+                        <p>Автор: {{ book.author }}</p>
+                        <p>Дата публикации: {{ book.pub_date }}</p>
+                    <a/>
+                </div>
+            {% endfor %}
+
+            {% if page.has_previous %}
+                <a class="button button-primary" href="?page={{ page.previous_page_number }}">⟵</a>
+            {% endif %}
+                <a class="button disabled" href="">{{ page.number }}</a>
+            {% if page.has_next %}
+                <a class="button button-primary" href="?page={{ page.next_page_number }}">⟶</a>
+            {% endif %}
         </div>
+
+
+
+<!--        <div class="content">-->
+<!--      {% for phone in phones %}-->
+<!--        <div class="phone">-->
+<!--          <a href="{% url 'phone' phone.slug %}">-->
+<!--            <h3>{{ phone.name }}</h3>-->
+<!--          </a>-->
+<!--          <div class="price">Стоимость: {{ phone.price }} ₽</div>-->
+<!--          <img height="400" src="{{ phone.image }}" alt="{{ phone.name }}"/>-->
+<!--        </div>-->
+<!--      {% endfor %}-->
+    </div>
+
+
+
+
+
     </div>
 {% endblock %}
