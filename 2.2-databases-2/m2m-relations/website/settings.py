@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'm2m-relations',
         'USER': 'postgres',
-        'PASSWORD': 'Tonqwert1',
+        'PASSWORD': 'postgres',
     }
 }
 
